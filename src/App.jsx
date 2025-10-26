@@ -14,6 +14,10 @@ import {
 
 import emailjs from "emailjs-com";
 import { useRef } from "react";
+import kalbaImage from "./assets/kalba.jpg";
+import beachImage from "./assets/kalba-beach.jpg";
+import mangroveImage from "./assets/mangrove.jpg";
+import museumImage from "./assets/kalba-museum.jpg";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -140,7 +144,6 @@ const App = () => {
             {isMenuOpen ? <X size={40} /> : <Menu size={40} />}
           </button>
 
-
           {/* <div className="nav-actions">
             <button className="cta-button">تسجيل الدخول</button>
           </div> */}
@@ -244,7 +247,7 @@ const App = () => {
 
             <div className="about-gallery">
               <div className="gallery-main">
-                <img src="/src/assets/kalba.jpg" alt="منظر من كلباء" />
+                <img src={kalbaImage} alt="منظر من كلباء" />
               </div>
               <div className="gallery-thumbnails">
                 <div className="thumbnail"></div>
@@ -538,20 +541,20 @@ const attractionsData = [
     title: "شاطئ كلباء",
     description:
       "شاطئ هادئ يتميز بمياهه النقية وإطلالاته الرائعة على خليج عمان.",
-    image: "/src/assets/kalba-beach.jpg",
+    image: beachImage,
     features: ["شاطئ", "عائلات", "مناظر طبيعية"],
   },
   {
     title: "محمية القرم",
     description:
       "واحدة من أهم المحميات الطبيعية في الدولة وتضم تنوعاً بيئياً غنياً.",
-    image: "/src/assets/mangrove.jpg",
+    image: mangroveImage,
     features: ["محمية", "طبيعة", "طيور"],
   },
   {
     title: "بيت القصب",
     description: "موقع أثري وتراثي يروي تاريخ المدينة العريق وحياة الأجداد.",
-    image: "/src/assets/kalba-museum.jpg",
+    image: museumImage,
     features: ["تراث", "تاريخ", "ثقافة"],
   },
 ];
