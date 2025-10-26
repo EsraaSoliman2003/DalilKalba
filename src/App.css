@@ -86,7 +86,7 @@ body {
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  padding: 10px 14px;
+  padding: 10px 7px;
   border-radius: 25px;
   cursor: pointer;
   position: relative;
@@ -1236,7 +1236,7 @@ section {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .contact-info,
   .contact-form {
     padding: 30px;
@@ -1247,46 +1247,47 @@ section {
   .contact-section {
     padding: 60px 5%;
   }
-  
+
   .contact-method {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .method-content {
     text-align: center;
   }
-  
+
   .social-icons-mini {
     justify-content: center;
   }
-  
+
   .contact-header,
   .form-header {
     text-align: center;
   }
-  
+
   .form-group label {
     text-align: right;
   }
 }
 
 @media (max-width: 480px) {
+
   .contact-info,
   .contact-form {
     padding: 20px;
   }
-  
+
   .contact-header h3,
   .form-header h3 {
     font-size: 1.6rem;
   }
-  
+
   .method-content h4 {
     font-size: 1.1rem;
   }
-  
+
   .method-content p {
     font-size: 1rem;
   }
@@ -1298,6 +1299,7 @@ section {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1309,16 +1311,41 @@ section {
   animation: fadeInUp 0.6s ease-out;
 }
 
-.contact-method:nth-child(1) { animation-delay: 0.1s; }
-.contact-method:nth-child(2) { animation-delay: 0.2s; }
-.contact-method:nth-child(3) { animation-delay: 0.3s; }
-.contact-method:nth-child(4) { animation-delay: 0.4s; }
+.contact-method:nth-child(1) {
+  animation-delay: 0.1s;
+}
 
-.form-group:nth-child(1) { animation-delay: 0.1s; }
-.form-group:nth-child(2) { animation-delay: 0.2s; }
-.form-group:nth-child(3) { animation-delay: 0.3s; }
-.form-group:nth-child(4) { animation-delay: 0.4s; }
-.submit-btn { animation-delay: 0.5s; }
+.contact-method:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contact-method:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.contact-method:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.form-group:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.form-group:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.form-group:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.form-group:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.submit-btn {
+  animation-delay: 0.5s;
+}
 
 /* زر القائمة في الموبايل */
 .menu-toggle {
@@ -1340,7 +1367,6 @@ section {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 80px;
     right: 0;
     width: 100%;
     background: rgba(10, 25, 47, 0.95);
@@ -1381,7 +1407,6 @@ section {
 @media (max-width: 768px) {
   .nav-menu {
     position: absolute;
-    top: 80px;
     right: 0;
     width: 100%;
     background: var(--primary-dark-light);
@@ -1415,6 +1440,7 @@ section {
     height: 80px;
   }
 }
+
 .nav-menu {
   display: flex;
   flex-direction: column;
@@ -1437,4 +1463,61 @@ section {
   transform: translateY(0);
   opacity: 1;
   pointer-events: all;
+}
+
+/* القائمة للموبايل */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    background: var(--primary-dark-light);
+    gap: 10px;
+    padding: 20px 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    text-align: center;
+    display: block;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+    position: relative;
+    z-index: 1100;
+  }
+}
+
+/* القائمة للشاشات الكبيرة */
+@media (min-width: 769px) {
+  .nav-menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    position: static;
+    width: auto;
+    background: transparent;
+    opacity: 1;
+    pointer-events: all;
+    transform: none;
+  }
+
+  .mobile-menu-icon {
+    display: none;
+  }
 }

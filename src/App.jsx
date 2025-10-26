@@ -109,33 +109,6 @@ const App = () => {
       {/* الهيدر المحسن */}
       <header className={`header ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
-          <nav className="nav-menu">
-            {["home", "about", "attractions", "social", "map", "contact"].map(
-              (section) => (
-                <button
-                  key={section}
-                  className={`nav-link ${
-                    activeSection === section ? "active" : ""
-                  }`}
-                  onClick={() => scrollToSection(section)}
-                >
-                  {getSectionName(section)}
-                </button>
-              )
-            )}
-          </nav>
-          <div className="logo-wrapper">
-            <img src={logoLight} alt="شعار كلباء" className="header-logo" />
-          </div>
-
-          {/* زر فتح/إغلاق القائمة في الموبايل */}
-          <button
-            ref={menuButtonRef}
-            className="mobile-menu-icon"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={40} /> : <Menu size={40} />}
-          </button>
           <nav ref={menuRef} className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
             {["home", "about", "attractions", "social", "map", "contact"].map(
               (section) => (
@@ -154,6 +127,19 @@ const App = () => {
               )
             )}
           </nav>
+          <div className="logo-wrapper">
+            <img src={logoLight} alt="شعار كلباء" className="header-logo" />
+          </div>
+
+          {/* زر فتح/إغلاق القائمة في الموبايل */}
+          <button
+            ref={menuButtonRef}
+            className="mobile-menu-icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={40} /> : <Menu size={40} />}
+          </button>
+
 
           {/* <div className="nav-actions">
             <button className="cta-button">تسجيل الدخول</button>
