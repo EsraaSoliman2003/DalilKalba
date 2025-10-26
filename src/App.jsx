@@ -8,11 +8,35 @@ import {
   // Youtube,
   Facebook,
   Ghost,
+  Menu,
+  X,
 } from "lucide-react";
+
 import emailjs from "emailjs-com";
 import { useRef } from "react";
 
 const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null); // إضافة ref للقائمة
+  const menuButtonRef = useRef(null); // إضافة ref لزر الموبايل
+
+  // إغلاق القائمة عند النقر خارجها
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
+
   const formRef = useRef();
   const [messageStatus, setMessageStatus] = useState(null); // ✅ حالة الرسالة
   const [isLoading, setIsLoading] = useState(false); // حالة التحميل (اللودر)
@@ -85,10 +109,6 @@ const App = () => {
       {/* الهيدر المحسن */}
       <header className={`header ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
-          <div className="logo-wrapper">
-            <img src={logoLight} alt="شعار كلباء" className="header-logo" />
-          </div>
-
           <nav className="nav-menu">
             {["home", "about", "attractions", "social", "map", "contact"].map(
               (section) => (
@@ -98,6 +118,36 @@ const App = () => {
                     activeSection === section ? "active" : ""
                   }`}
                   onClick={() => scrollToSection(section)}
+                >
+                  {getSectionName(section)}
+                </button>
+              )
+            )}
+          </nav>
+          <div className="logo-wrapper">
+            <img src={logoLight} alt="شعار كلباء" className="header-logo" />
+          </div>
+
+          {/* زر فتح/إغلاق القائمة في الموبايل */}
+          <button
+            ref={menuButtonRef}
+            className="mobile-menu-icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={40} /> : <Menu size={40} />}
+          </button>
+          <nav ref={menuRef} className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
+            {["home", "about", "attractions", "social", "map", "contact"].map(
+              (section) => (
+                <button
+                  key={section}
+                  className={`nav-link ${
+                    activeSection === section ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    scrollToSection(section);
+                    setIsMenuOpen(false); // إغلاق القائمة بعد الاختيار
+                  }}
                 >
                   {getSectionName(section)}
                 </button>
