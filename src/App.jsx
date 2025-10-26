@@ -244,7 +244,7 @@ const App = () => {
 
             <div className="about-gallery">
               <div className="gallery-main">
-                <img src="/public/kalba.jpg" alt="منظر من كلباء" />
+                <img src="/src/assets/kalba.jpg" alt="منظر من كلباء" />
               </div>
               <div className="gallery-thumbnails">
                 <div className="thumbnail"></div>
@@ -538,20 +538,20 @@ const attractionsData = [
     title: "شاطئ كلباء",
     description:
       "شاطئ هادئ يتميز بمياهه النقية وإطلالاته الرائعة على خليج عمان.",
-    image: "/public/kalba-beach.jpg",
+    image: "/src/assets/kalba-beach.jpg",
     features: ["شاطئ", "عائلات", "مناظر طبيعية"],
   },
   {
     title: "محمية القرم",
     description:
       "واحدة من أهم المحميات الطبيعية في الدولة وتضم تنوعاً بيئياً غنياً.",
-    image: "/public/mangrove.jpg",
+    image: "/src/assets/mangrove.jpg",
     features: ["محمية", "طبيعة", "طيور"],
   },
   {
     title: "بيت القصب",
     description: "موقع أثري وتراثي يروي تاريخ المدينة العريق وحياة الأجداد.",
-    image: "/public/kalba-museum.jpg",
+    image: "/src/assets/kalba-museum.jpg",
     features: ["تراث", "تاريخ", "ثقافة"],
   },
 ];
